@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SwiperDiy extends StatelessWidget {
   final List swiperDataList;
@@ -7,8 +8,13 @@ class SwiperDiy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 740, height: 1334)..init(context);
+    print('设备像素密度：${ScreenUtil.pixelRatio}');
+    print('设备像素高度：${ScreenUtil.screenHeight}');
+    print('设备像素宽度：${ScreenUtil.screenWidth}');
     return Container(
-      height: 333,
+      height: ScreenUtil().setHeight(333),
+      width: ScreenUtil().setWidth(750),
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
           // "${swiperDataList[index]['xx']" 取值问题
