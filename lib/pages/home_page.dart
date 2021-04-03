@@ -1,5 +1,8 @@
+import 'package:dev_Flutter_demo/tools/swiper_Diy.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import '../NetRequest/service_method.dart';
+import 'dart:convert'; //json
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -10,11 +13,33 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('首页………………'),
-      ),
-    );
+        appBar: AppBar(title: Text('首页页面---')),
+        body: FutureBuilder(
+          //异步构造器
+          future: xxmethod(), //调用异步方法
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              var data = json.decode(snapshot.data.toString());
+              print(data);
+              return Column(
+                children: [
+                  SwiperDiy(swiperDataList: ["1", "2", "3"])
+                ],
+              );
+            } else {
+              return Center(
+                child: Text('xxxxxxx'),
+              );
+            }
+          },
+        ));
   }
 }

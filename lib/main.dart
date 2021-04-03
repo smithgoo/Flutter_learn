@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: MaterialApp(
-        title:'test',
+        title: 'test',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: Colors.pink),
-        home:Nav_bottomBar_index(),
+        home: Nav_bottomBar_index(),
       ),
     );
   }
