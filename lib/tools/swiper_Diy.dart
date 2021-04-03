@@ -11,6 +11,7 @@ class SwiperDiy extends StatelessWidget {
       height: 333,
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
+          // "${swiperDataList[index]['xx']" 取值问题
           return Image.network(
               'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64');
         },
