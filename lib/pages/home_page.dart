@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 import '../NetRequest/service_method.dart';
 import 'dart:convert'; //json
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../tools/topNavigator_Diy.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -32,7 +33,61 @@ class _HomePageState extends State<HomePage> {
               print(data);
               return Column(
                 children: [
-                  SwiperDiy(swiperDataList: ["1", "2", "3"])
+                  SwiperDiy(swiperDataList: ["1", "2", "3"]),
+                  TopNavigator(
+                    navigationList: [
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "123"
+                      },
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "456"
+                      },
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "789"
+                      },
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "123"
+                      },
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "456"
+                      },
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "678"
+                      },
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "789"
+                      },
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "123"
+                      },
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "456"
+                      },
+                      {
+                        "img":
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                        "name": "789"
+                      }
+                    ],
+                  ),
                 ],
               );
             } else {

@@ -4,6 +4,7 @@ import './category_page.dart';
 import './home_page.dart';
 import './mine_page.dart';
 import './shopcart_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Nav_bottomBar_index extends StatefulWidget {
   Nav_bottomBar_index({Key key}) : super(key: key);
@@ -41,6 +42,7 @@ class _Nav_bottomBar_indexState extends State<Nav_bottomBar_index> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 740, height: 1334)..init(context);
     return Scaffold(
       backgroundColor: Color.fromRGBO(244, 245, 245, 1.0),
       bottomNavigationBar: BottomNavigationBar(

@@ -9,7 +9,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 740, height: 1334)..init(context);
     return Container(
       child: MaterialApp(
         title: 'test',

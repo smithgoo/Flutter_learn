@@ -8,17 +8,18 @@ class TopNavigator extends StatelessWidget {
 
   Widget _gridViewItemUI(BuildContext context, item) {
     return InkWell(
-      onTap: () {print('点击了导航')},
+      onTap: () {
+        print("点击了导航");
+      },
       child: Column(
         children: [
-          Image.network(
-              'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64',width: ScreenUtil().setWidth(95));
-          Text(item['name']),
+          Image.network(item["img"], width: ScreenUtil().setWidth(95)),
+          Text(item["name"]),
         ],
       ),
     );
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,10 +28,10 @@ class TopNavigator extends StatelessWidget {
       child: GridView.count(
         crossAxisCount: 5,
         padding: EdgeInsets.all(5.0),
-        children: navigationList.map((item){
-
+        children: navigationList.map((item) {
+          return _gridViewItemUI(context, item);
         }).toList(),
-       //遍历 网格tolist
+        //遍历 网格tolist
       ),
     );
   }
