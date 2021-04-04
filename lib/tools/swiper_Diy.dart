@@ -8,7 +8,6 @@ class SwiperDiy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 740, height: 1334)..init(context);
     print('设备像素密度：${ScreenUtil.pixelRatio}');
     print('设备像素高度：${ScreenUtil.screenHeight}');
     print('设备像素宽度：${ScreenUtil.screenWidth}');
