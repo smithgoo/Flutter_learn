@@ -11,8 +11,7 @@ Future xxmethod() async {
     // dio.options.contentType = ContentType.parse('json/text');
     // var formData = {"word":"%E5%B7%B1%E6%89%80%E4%B8%8D%E6%AC%B2"};
 
-    response = await dio.get(
-        "https://idiom.sixming.com/get.php?word=%E9%9A%94%E5%B2%B8%E8%A7%82%E7%81%AB");
+    response = await dio.get("https://idiom.sixming.com/get.php");
 
     if (response.statusCode == 200) {
       // print(response.data);
