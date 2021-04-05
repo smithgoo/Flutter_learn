@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meta/meta_meta.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -10,6 +11,7 @@ class TelCallMethod extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: ScreenUtil().setHeight(100),
       child: InkWell(
         onTap: _launchUrl,
         child: Image.network(imgUrl),

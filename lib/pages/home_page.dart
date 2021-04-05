@@ -33,7 +33,8 @@ class _HomePageState extends State<HomePage> {
             if (snapshot.hasData) {
               var data = json.decode(snapshot.data.toString());
               print(data);
-              return Column(
+              return SingleChildScrollView(
+                child:Column(
                 children: [
                   SwiperDiy(swiperDataList: ["1", "2", "3"]),
                   TopNavigator(
@@ -95,7 +96,8 @@ class _HomePageState extends State<HomePage> {
                           "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64"),
                   TelCallMethod(imgUrl:"https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",tel: '13800138000'),
                 ],
-              );
+              ),
+              );// 一屏显示不下 的bug
             } else {
               return Center(
                 child: Text('xxxxxxx'),
