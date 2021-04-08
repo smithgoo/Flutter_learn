@@ -15,7 +15,11 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -34,70 +38,73 @@ class _HomePageState extends State<HomePage> {
               var data = json.decode(snapshot.data.toString());
               print(data);
               return SingleChildScrollView(
-                child:Column(
-                children: [
-                  SwiperDiy(swiperDataList: ["1", "2", "3"]),
-                  TopNavigator(
-                    navigationList: [
-                      {
-                        "img":
+                child: Column(
+                  children: [
+                    SwiperDiy(swiperDataList: ["1", "2", "3"]),
+                    TopNavigator(
+                      navigationList: [
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "123"
+                        },
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "456"
+                        },
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "789"
+                        },
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "123"
+                        },
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "456"
+                        },
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "678"
+                        },
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "789"
+                        },
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "123"
+                        },
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "456"
+                        },
+                        {
+                          "img":
+                              "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
+                          "name": "789"
+                        }
+                      ],
+                    ),
+                    ADBanner(
+                        bannerString:
+                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64"),
+                    TelCallMethod(
+                        imgUrl:
                             "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "123"
-                      },
-                      {
-                        "img":
-                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "456"
-                      },
-                      {
-                        "img":
-                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "789"
-                      },
-                      {
-                        "img":
-                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "123"
-                      },
-                      {
-                        "img":
-                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "456"
-                      },
-                      {
-                        "img":
-                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "678"
-                      },
-                      {
-                        "img":
-                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "789"
-                      },
-                      {
-                        "img":
-                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "123"
-                      },
-                      {
-                        "img":
-                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "456"
-                      },
-                      {
-                        "img":
-                            "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",
-                        "name": "789"
-                      }
-                    ],
-                  ),
-                  ADBanner(
-                      bannerString:
-                          "https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64"),
-                  TelCallMethod(imgUrl:"https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64",tel: '13800138000'),
-                ],
-              ),
-              );// 一屏显示不下 的bug
+                        tel: '13800138000'),
+                  ],
+                ),
+              ); // 一屏显示不下 的bug
             } else {
               return Center(
                 child: Text('xxxxxxx'),

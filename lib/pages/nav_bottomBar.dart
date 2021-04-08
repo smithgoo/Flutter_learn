@@ -23,7 +23,7 @@ class _Nav_bottomBar_indexState extends State<Nav_bottomBar_index> {
         icon: Icon(Icons.mail_outline), title: Text('会员中心')),
   ];
 
-  final List navAllPages = [
+  final List<Widget> navAllPages = [
     HomePage(),
     CategoryPage(),
     ShopCartPage(),
@@ -56,7 +56,10 @@ class _Nav_bottomBar_indexState extends State<Nav_bottomBar_index> {
           });
         },
       ),
-      body: currentPage,
+      body: IndexedStack(
+        index: currentIndex,
+        children: navAllPages,
+      ),
     );
   }
 }
