@@ -8,8 +8,32 @@ class CategoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child:Text('分类页面'),
+        child: Column(
+          children: [
+            Number(),
+            MyButton(),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class Number extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 220),
+      child: Text('1'),
+    );
+  }
+}
+
+class MyButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: RaisedButton(onPressed: () {}, child: Text('点击')),
     );
   }
 }
