@@ -1,9 +1,8 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:provide/provide.dart';
-import '../provide/counter.dart';
+import '../provide/controller.dart';
+import 'package:get/get.dart';
 
 class CategoryPage extends StatelessWidget {
   // const CategoryPage({Key key}) : super(key: key);
@@ -14,8 +13,8 @@ class CategoryPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Number(),
             MyButton(),
+            Number(),
           ],
         ),
       ),
@@ -26,25 +25,23 @@ class CategoryPage extends StatelessWidget {
 class Number extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Controller c = Get.find();
     return Container(
-        margin: EdgeInsets.only(top: 220),
-        child: Provide<Counter>(
-          builder: (context, child, counter) {
-            return Text('${counter.value}');
-          },
-        ));
+      margin: EdgeInsets.only(top: 220),
+      child: Obx(
+        () => Text('点击了 ${c.count.value} 次', style: TextStyle(fontSize: 30.0)),
+      ),
+    );
   }
 }
 
 class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Controller c = Get.put(Controller());
     return Container(
-      child: RaisedButton(
-          onPressed: () {
-            // Provide.value<Counter>(context).increment();
-          },
-          child: Text('点击')),
+      margin: EdgeInsets.only(top: 170),
+      child: RaisedButton(onPressed: () => c.increment(), child: Text('点击')),
     );
   }
 }
