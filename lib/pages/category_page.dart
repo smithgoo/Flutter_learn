@@ -6,15 +6,17 @@ import 'package:get/get.dart';
 
 class CategoryPage extends StatelessWidget {
   // const CategoryPage({Key key}) : super(key: key);
-
+  //
+  final Controller c2 = Get.put(Controller());
+  final Controller c1 = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Column(
           children: [
-            MyButton(),
-            Number(),
+            Number(c: c1),
+            MyButton(c: c2),
           ],
         ),
       ),
@@ -23,9 +25,10 @@ class CategoryPage extends StatelessWidget {
 }
 
 class Number extends StatelessWidget {
+  final Controller c;
+  const Number({Key key, this.c}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final Controller c = Get.find();
     return Container(
       margin: EdgeInsets.only(top: 220),
       child: Obx(
@@ -36,9 +39,10 @@ class Number extends StatelessWidget {
 }
 
 class MyButton extends StatelessWidget {
+  final Controller c;
+  const MyButton({Key key, this.c}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final Controller c = Get.put(Controller());
     return Container(
       margin: EdgeInsets.only(top: 170),
       child: RaisedButton(onPressed: () => c.increment(), child: Text('点击')),
