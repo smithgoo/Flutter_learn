@@ -8,14 +8,14 @@ class CategoryPage extends StatelessWidget {
   // const CategoryPage({Key key}) : super(key: key);
   //
   final Controller c2 = Get.put(Controller());
-  final Controller c1 = Get.find();
+  // final Controller c1 = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Column(
           children: [
-            Number(c: c1),
+            Number(c: c2),
             MyButton(c: c2),
           ],
         ),
