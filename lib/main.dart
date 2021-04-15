@@ -10,11 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: GetMaterialApp(
-        title: 'test',
+    return ScreenUtilInit(
+      designSize: Size(750, 1334),
+      // allowFontScaling: false,
+      builder: () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primaryColor: Colors.pink),
+        theme: ThemeData(
+          primarySwatch: Colors.pink,
+        ),
         home: Nav_bottomBar_index(),
       ),
     );

@@ -1,22 +1,25 @@
 import 'dart:developer';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meta/meta.dart';
 import '../provide/controller.dart';
 import 'package:get/get.dart';
 
 class CategoryPage extends StatelessWidget {
-  // const CategoryPage({Key key}) : super(key: key);
-  //
-  final Controller c2 = Get.put(Controller());
-  final Controller c1 = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
+      appBar: AppBar(
+        title: Text('商品分类'),
+      ),
+      body: Container(
+        child: Row(
           children: [
-            Number(c: c1),
-            MyButton(c: c2),
+            LeftCategoryNav(),
+            Column(children: [
+              _RightCategoryNav(),
+            ])
           ],
         ),
       ),
@@ -24,28 +27,104 @@ class CategoryPage extends StatelessWidget {
   }
 }
 
-class Number extends StatelessWidget {
-  final Controller c;
-  const Number({Key key, this.c}) : super(key: key);
+//左侧大分类视图
+class LeftCategoryNav extends StatefulWidget {
+  LeftCategoryNav({Key key}) : super(key: key);
+
+  @override
+  _LeftCategoryNavState createState() => _LeftCategoryNavState();
+}
+
+class _LeftCategoryNavState extends State<LeftCategoryNav> {
+  var TitleLst = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];
+  var listIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 220),
-      child: Obx(
-        () => Text('点击了 ${c.count.value} 次', style: TextStyle(fontSize: 30.0)),
+      width: ScreenUtil().setWidth(180),
+      decoration: BoxDecoration(
+          //设置点击显示的横线
+          border: Border(right: BorderSide(width: 1, color: Colors.black12))),
+      child: ListView.builder(
+          itemCount: TitleLst.length,
+          itemBuilder: (context, index) {
+            return _leftInkWell(index);
+          }),
+    );
+  }
+
+  Widget _leftInkWell(int index) {
+    bool isclick = false;
+    isclick = (index == listIndex) ? true : false;
+    return InkWell(
+      onTap: () {
+        setState(() {
+          listIndex = index;
+        });
+      },
+      child: Container(
+        height: ScreenUtil().setHeight(100),
+        padding: EdgeInsets.only(left: 10, top: 20),
+        decoration: BoxDecoration(
+            //设置点击显示的横线
+            color: isclick ? Colors.black26 : Colors.white,
+            border:
+                Border(bottom: BorderSide(width: 1, color: Colors.black12))),
+        child: Text(TitleLst[index]),
       ),
     );
   }
 }
 
-class MyButton extends StatelessWidget {
-  final Controller c;
-  const MyButton({Key key, this.c}) : super(key: key);
+class _RightCategoryNav extends StatefulWidget {
+  _RightCategoryNav({Key key}) : super(key: key);
+
+  @override
+  __RightCategoryNavState createState() => __RightCategoryNavState();
+}
+
+class __RightCategoryNavState extends State<_RightCategoryNav> {
+  var TitleLst = [
+    "主食",
+    "水果",
+    "零食",
+    "小吃",
+    "水果",
+    "零食",
+    "小吃",
+    "小吃",
+    "水果",
+    "零食",
+    "小吃"
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 170),
-      child: RaisedButton(onPressed: () => c.increment(), child: Text('点击')),
+      height: ScreenUtil().setHeight(80),
+      width: ScreenUtil().setWidth(570),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border(bottom: BorderSide(width: 1, color: Colors.black12))),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: TitleLst.length,
+        itemBuilder: (context, index) {
+          return _rightInkWell(TitleLst[index]);
+        },
+      ),
+    );
+  }
+
+  Widget _rightInkWell(String item) {
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        padding: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
+        child: Text(
+          item,
+          style: TextStyle(fontSize: ScreenUtil().setSp(28)),
+        ),
+      ),
     );
   }
 }
