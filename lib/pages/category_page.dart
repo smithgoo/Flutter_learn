@@ -19,6 +19,7 @@ class CategoryPage extends StatelessWidget {
             LeftCategoryNav(),
             Column(children: [
               _RightCategoryNav(),
+              RightContentWidget(),
             ])
           ],
         ),
@@ -123,6 +124,51 @@ class __RightCategoryNavState extends State<_RightCategoryNav> {
         child: Text(
           item,
           style: TextStyle(fontSize: ScreenUtil().setSp(28)),
+        ),
+      ),
+    );
+  }
+}
+
+class RightContentWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        width: ScreenUtil().setWidth(570),
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return _rightInkWell(
+                'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64',
+                '122',
+                '345');
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _rightInkWell(String imgUrl, String showPrice, String realPrice) {
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        width: ScreenUtil().setWidth(570),
+        height: ScreenUtil().setHeight(100),
+        child: Row(
+          children: [
+            Image.network(
+              imgUrl,
+              width: 60,
+              height: 90,
+            ),
+            Column(
+              children: [
+                Text(showPrice),
+                Text(realPrice),
+              ],
+            ),
+          ],
         ),
       ),
     );
