@@ -8,10 +8,12 @@ Future xxmethod() async {
     print('开始获取数据......');
     Response response;
     Dio dio = new Dio();
-    // dio.options.contentType = ContentType.parse('json/text');
-    // var formData = {"word":"%E5%B7%B1%E6%89%80%E4%B8%8D%E6%AC%B2"};
+    // dio.options.contentType =
+    // ContentType('application', 'x-www-form-urlencoded');
+    var formData = {'lon': '115.02932', 'lat': '35.76198'};
 
-    response = await dio.get("https://idiom.sixming.com/get.php");
+    // response = await dio.get("https://idiom.sixming.com/get.php");
+    response = await dio.post(servicePatch['homePageContent'], data: formData);
 
     if (response.statusCode == 200) {
       // print(response.data);
