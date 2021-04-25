@@ -22,7 +22,7 @@ class SwiperDiy extends StatelessWidget {
           // "${swiperDataList[index]['xx']" 取值问题
           return InkWell(
             onTap: () {
-              Get.toNamed('${AppRoutes.GoodsDetail}?title=Julian');
+              Get.toNamed('${AppRoutes.GoodsDetail}?title=${index}');
             },
             child: Image.network(
                 'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64'),
