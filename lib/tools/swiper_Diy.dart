@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import '../pages/GoodsDetail_page.dart';
 
 class SwiperDiy extends StatelessWidget {
   final List swiperDataList;
@@ -14,15 +16,20 @@ class SwiperDiy extends StatelessWidget {
     return Container(
       height: ScreenUtil().setHeight(333),
       width: ScreenUtil().setWidth(750),
-      child: Swiper(
-        itemBuilder: (BuildContext context, int index) {
-          // "${swiperDataList[index]['xx']" 取值问题
-          return Image.network(
-              'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64');
+      child: InkWell(
+        onTap: () {
+          Get.to(GoodsDetailVC());
         },
-        itemCount: swiperDataList.length,
-        pagination: SwiperPagination(),
-        autoplay: true,
+        child: Swiper(
+          itemBuilder: (BuildContext context, int index) {
+            // "${swiperDataList[index]['xx']" 取值问题
+            return Image.network(
+                'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64');
+          },
+          itemCount: swiperDataList.length,
+          pagination: SwiperPagination(),
+          autoplay: true,
+        ),
       ),
     );
   }
