@@ -11,11 +11,8 @@ class SwiperDiy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print('设备像素密度：${ScreenUtil.pixelRatio}');
-    // print('设备像素高度：${ScreenUtil.screenHeight}');
-    // print('设备像素宽度：${ScreenUtil.screenWidth}');
     return Container(
-      height: ScreenUtil().setHeight(333),
+      height: ScreenUtil().setHeight(9 * 750 / 16),
       width: ScreenUtil().setWidth(750),
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
@@ -24,8 +21,7 @@ class SwiperDiy extends StatelessWidget {
             onTap: () {
               Get.toNamed('${AppRoutes.GoodsDetail}?title=${index}');
             },
-            child: Image.network(
-                'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64'),
+            child: Image.network(swiperDataList[index]),
           );
         },
         itemCount: swiperDataList.length,

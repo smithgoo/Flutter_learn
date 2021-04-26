@@ -37,6 +37,7 @@ dependencies:
   flutter_ijkplayer: ^0.3.5 # https://pub.dev/packages/flutter_ijkplayer  
   fluttertoast: ^8.0.4
   fluro: ^2.0.3
+  shared_preferences: ^2.0.5
   
 dev_dependencies:
   flutter_test:

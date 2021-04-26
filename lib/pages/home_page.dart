@@ -40,7 +40,11 @@ class _HomePageState extends State<HomePage>
               return SingleChildScrollView(
                 child: Column(
                   children: [
-                    SwiperDiy(swiperDataList: ["1", "2", "3"]),
+                    SwiperDiy(swiperDataList: [
+                      "https://icon.qiantucdn.com/images/assets/2021-04608534fbc0618_50.jpg",
+                      "https://icon.qiantucdn.com/images/assets/2021-046085354616100_77.jpg",
+                      "https://icon.qiantucdn.com/images/assets/2021-0360594929d5345_64.jpg"
+                    ]),
                     TopNavigator(
                       navigationList: [
                         {

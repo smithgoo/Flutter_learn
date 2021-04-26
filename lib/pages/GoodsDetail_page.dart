@@ -8,7 +8,16 @@ class GoodsDetailVC extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('详情页面')),
       body: Center(
-        child: Text('详情页面${title}'),
+        child: Column(
+          children: [
+            Text('详情页面${title}'),
+            FlatButton(
+                onPressed: () {
+                  print('tap add shopping car');
+                },
+                child: Text('加入购物车'))
+          ],
+        ),
       ),
     );
   }
