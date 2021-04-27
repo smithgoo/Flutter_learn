@@ -26,7 +26,7 @@ class TopNavigator extends StatelessWidget {
       height: ScreenUtil().setHeight(320),
       padding: EdgeInsets.all(3.0),
       child: GridView.count(
-        physics: NeverScrollableScrollPhysics(),//禁止回弹效果避免和上啦下啦家在冲突
+        physics: NeverScrollableScrollPhysics(), //禁止回弹效果避免和上啦下啦家在冲突
         crossAxisCount: 5,
         padding: EdgeInsets.all(5.0),
         children: navigationList.map((item) {

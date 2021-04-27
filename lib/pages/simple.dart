@@ -1,10 +1,12 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:meta/meta.dart';
 import '../provide/controller.dart';
 import 'package:get/get.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-class CategoryPage extends StatelessWidget {
+class SimplePage extends StatelessWidget {
   // const CategoryPage({Key key}) : super(key: key);
   //
   final Controller c2 = Get.put(Controller());
@@ -45,7 +47,18 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 170),
-      child: RaisedButton(onPressed: () => c.increment(), child: Text('点击')),
+      child: RaisedButton(
+          onPressed: () {
+            Fluttertoast.showToast(
+                msg: "This is Center Short Toast",
+                toastLength: Toast.LENGTH_LONG,
+                gravity: ToastGravity.CENTER,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.black12,
+                textColor: Colors.white,
+                fontSize: 16.0);
+          },
+          child: Text('点击')),
     );
   }
 }

@@ -5,6 +5,7 @@ import './home_page.dart';
 import './mine_page.dart';
 import './shopcart_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../pages/simple.dart';
 
 class Nav_bottomBar_index extends StatefulWidget {
   Nav_bottomBar_index({Key key}) : super(key: key);
@@ -21,6 +22,7 @@ class _Nav_bottomBar_indexState extends State<Nav_bottomBar_index> {
         icon: Icon(Icons.shopping_cart), title: Text('购物车')),
     BottomNavigationBarItem(
         icon: Icon(Icons.mail_outline), title: Text('会员中心')),
+    BottomNavigationBarItem(icon: Icon(Icons.mail_outline), title: Text('事例')),
   ];
 
   final List<Widget> navAllPages = [
@@ -28,6 +30,7 @@ class _Nav_bottomBar_indexState extends State<Nav_bottomBar_index> {
     CategoryPage(),
     ShopCartPage(),
     MinePage(),
+    SimplePage(),
   ];
 
   int currentIndex = 0;
