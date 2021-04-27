@@ -19,7 +19,8 @@ class SwiperDiy extends StatelessWidget {
           // "${swiperDataList[index]['xx']" 取值问题
           return InkWell(
             onTap: () {
-              Get.toNamed('${AppRoutes.GoodsDetail}?title=${index}');
+              // Get.toNamed('${AppRoutes.GoodsDetail}?title=${index}');
+              Get.toNamed('${AppRoutes.VideoPlayer}');
             },
             child: Image.network(swiperDataList[index]),
           );
