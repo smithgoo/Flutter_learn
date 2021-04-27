@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 import '../provide/controller.dart';
 import 'package:get/get.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import '../NetRequest/service_method.dart';
 
 class SimplePage extends StatelessWidget {
   // const CategoryPage({Key key}) : super(key: key);
@@ -49,14 +50,15 @@ class MyButton extends StatelessWidget {
       margin: EdgeInsets.only(top: 170),
       child: RaisedButton(
           onPressed: () {
-            Fluttertoast.showToast(
-                msg: "This is Center Short Toast",
-                toastLength: Toast.LENGTH_LONG,
-                gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 1,
-                backgroundColor: Colors.black12,
-                textColor: Colors.white,
-                fontSize: 16.0);
+            moveInfoReqMethod('http://www.70sky.com/index.html');
+            //   Fluttertoast.showToast(
+            //       msg: "This is Center Short Toast",
+            //       toastLength: Toast.LENGTH_LONG,
+            //       gravity: ToastGravity.CENTER,
+            //       timeInSecForIosWeb: 1,
+            //       backgroundColor: Colors.black12,
+            //       textColor: Colors.white,
+            //       fontSize: 16.0);
           },
           child: Text('点击')),
     );

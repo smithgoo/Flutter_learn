@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meta/meta.dart';
 import '../provide/controller.dart';
 import 'package:get/get.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class CategoryPage extends StatelessWidget {
   @override
@@ -136,13 +137,30 @@ class RightContentWidget extends StatelessWidget {
     return Expanded(
       child: Container(
         width: ScreenUtil().setWidth(570),
-        child: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return _rightInkWell(
-                'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64',
-                '122',
-                '345');
+        child: EasyRefresh(
+          // enableControlFinishLoad: true,
+          // enableControlFinishRefresh: true,
+          child: ListView.builder(
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return _rightInkWell(
+                  'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64',
+                  '122',
+                  '345');
+            },
+          ),
+          onRefresh: () async {
+            print('上啦');
+            //完成刷新
+            EasyRefreshController _controller = EasyRefreshController();
+
+            _controller.finishRefresh(success: true);
+          },
+          onLoad: () async {
+            print('下啦');
+            //完成刷新
+            EasyRefreshController _controller = EasyRefreshController();
+            _controller.finishLoad(success: true, noMore: false);
           },
         ),
       ),

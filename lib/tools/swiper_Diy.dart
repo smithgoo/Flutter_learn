@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import '../pages/GoodsDetail_page.dart';
+import '../Router/app_pages.dart';
 
 class SwiperDiy extends StatelessWidget {
   final List swiperDataList;
@@ -8,17 +11,18 @@ class SwiperDiy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print('设备像素密度：${ScreenUtil.pixelRatio}');
-    // print('设备像素高度：${ScreenUtil.screenHeight}');
-    // print('设备像素宽度：${ScreenUtil.screenWidth}');
     return Container(
-      height: ScreenUtil().setHeight(333),
+      height: ScreenUtil().setHeight(9 * 750 / 16),
       width: ScreenUtil().setWidth(750),
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
           // "${swiperDataList[index]['xx']" 取值问题
-          return Image.network(
-              'https://img-blog.csdnimg.cn/20190904140856701.jpg?x-oss-process=image/resize,m_fixed,h_64,w_64');
+          return InkWell(
+            onTap: () {
+              Get.toNamed('${AppRoutes.GoodsDetail}?title=${index}');
+            },
+            child: Image.network(swiperDataList[index]),
+          );
         },
         itemCount: swiperDataList.length,
         pagination: SwiperPagination(),

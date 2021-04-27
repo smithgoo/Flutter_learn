@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/nav_bottomBar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import './Router/app_pages.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.pink,
         ),
         home: Nav_bottomBar_index(),
+        getPages: AppPages.pages,
       ),
     );
   }
