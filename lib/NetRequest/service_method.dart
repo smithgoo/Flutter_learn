@@ -35,6 +35,9 @@ Future moveInfoReqMethod(url) async {
   // 解析标签的值
   List xx = [];
 
+  List movesImage =
+      parse(res.data).querySelectorAll("div.myui-vodlist__box > a");
+
   List movesName =
       parse(res.data).querySelectorAll("div.myui-vodlist__detail > h4 > a");
 
@@ -55,6 +58,13 @@ Future moveInfoReqMethod(url) async {
     Map tt = xx[idx];
     tt['text'] = element.text;
     idx++;
+  });
+
+  int jdx = 0;
+  movesImage.forEach((element) {
+    Map tt = xx[jdx];
+    tt['Img'] = element.attributes['data-original'];
+    jdx++;
   });
 
   xx.forEach((element) {
